@@ -30,10 +30,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -72,15 +70,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11152}
     - Class: 114
-      Script: {instanceID: 11464}
+      Script: {instanceID: 11466}
     - Class: 114
-      Script: {instanceID: 12188}
+      Script: {instanceID: 12190}
     - Class: 114
-      Script: {instanceID: 13232}
+      Script: {instanceID: 13236}
     - Class: 114
-      Script: {instanceID: 13666}
+      Script: {instanceID: 13670}
     - Class: 114
-      Script: {instanceID: 14280}
+      Script: {instanceID: 14284}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -129,39 +127,39 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11152}
     - Class: 114
-      Script: {instanceID: 11272}
+      Script: {instanceID: 11274}
     - Class: 114
-      Script: {instanceID: 11464}
+      Script: {instanceID: 11466}
     - Class: 114
-      Script: {instanceID: 11612}
+      Script: {instanceID: 11614}
     - Class: 114
-      Script: {instanceID: 11694}
+      Script: {instanceID: 11696}
     - Class: 114
-      Script: {instanceID: 11974}
+      Script: {instanceID: 11976}
     - Class: 114
-      Script: {instanceID: 12068}
+      Script: {instanceID: 12070}
     - Class: 114
-      Script: {instanceID: 12188}
+      Script: {instanceID: 12190}
     - Class: 114
-      Script: {instanceID: 12318}
+      Script: {instanceID: 12320}
     - Class: 114
-      Script: {instanceID: 12892}
+      Script: {instanceID: 12894}
     - Class: 114
-      Script: {instanceID: 12926}
+      Script: {instanceID: 12928}
     - Class: 114
-      Script: {instanceID: 13232}
+      Script: {instanceID: 13236}
     - Class: 114
-      Script: {instanceID: 13336}
+      Script: {instanceID: 13340}
     - Class: 114
-      Script: {instanceID: 13530}
+      Script: {instanceID: 13534}
     - Class: 114
-      Script: {instanceID: 13666}
+      Script: {instanceID: 13670}
     - Class: 114
-      Script: {instanceID: 14280}
+      Script: {instanceID: 14284}
     - Class: 114
-      Script: {instanceID: 14322}
+      Script: {instanceID: 14326}
     - Class: 114
-      Script: {instanceID: 14352}
+      Script: {instanceID: 14356}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -216,35 +214,39 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11152}
     - Class: 114
-      Script: {instanceID: 11272}
+      Script: {instanceID: 11274}
     - Class: 114
-      Script: {instanceID: 11464}
+      Script: {instanceID: 11466}
     - Class: 114
-      Script: {instanceID: 11612}
+      Script: {instanceID: 11614}
     - Class: 114
-      Script: {instanceID: 11694}
+      Script: {instanceID: 11696}
     - Class: 114
-      Script: {instanceID: 11974}
+      Script: {instanceID: 11976}
     - Class: 114
-      Script: {instanceID: 12068}
+      Script: {instanceID: 12070}
     - Class: 114
-      Script: {instanceID: 12318}
+      Script: {instanceID: 12190}
     - Class: 114
-      Script: {instanceID: 12892}
+      Script: {instanceID: 12320}
     - Class: 114
-      Script: {instanceID: 12926}
+      Script: {instanceID: 12894}
     - Class: 114
-      Script: {instanceID: 13232}
+      Script: {instanceID: 12928}
     - Class: 114
-      Script: {instanceID: 13336}
+      Script: {instanceID: 13236}
     - Class: 114
-      Script: {instanceID: 13530}
+      Script: {instanceID: 13340}
     - Class: 114
-      Script: {instanceID: 13666}
+      Script: {instanceID: 13534}
     - Class: 114
-      Script: {instanceID: 14322}
+      Script: {instanceID: 13670}
     - Class: 114
-      Script: {instanceID: 14352}
+      Script: {instanceID: 14284}
+    - Class: 114
+      Script: {instanceID: 14326}
+    - Class: 114
+      Script: {instanceID: 14356}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -299,19 +301,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11152}
     - Class: 114
-      Script: {instanceID: 11464}
+      Script: {instanceID: 11466}
     - Class: 114
-      Script: {instanceID: 12188}
+      Script: {instanceID: 12190}
     - Class: 114
-      Script: {instanceID: 12892}
+      Script: {instanceID: 12894}
     - Class: 114
-      Script: {instanceID: 13530}
+      Script: {instanceID: 13046}
     - Class: 114
-      Script: {instanceID: 13666}
+      Script: {instanceID: 13534}
     - Class: 114
-      Script: {instanceID: 14280}
+      Script: {instanceID: 13670}
     - Class: 114
-      Script: {instanceID: 159240}
+      Script: {instanceID: 14284}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -355,6 +357,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Joystick
+  - hash:
+      serializedVersion: 2
+      Hash: e7772dcdcaa82fc1cf15ef203f77d195
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Ship
   - hash:
       serializedVersion: 2
       Hash: c42672c997f8be6b1aa86a927ebea785
@@ -687,6 +695,12 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Loot
+  - hash:
+      serializedVersion: 2
       Hash: 71b711096c6c32621c1d4c02310898b7
     assemblyName: Unity.2D.Animation.Runtime.dll
     namespaceName: UnityEngine.U2D.Animation
@@ -919,22 +933,10 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: e7772dcdcaa82fc1cf15ef203f77d195
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Ship
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Loot
   platform: 5
   scenePathNames:
   - Assets/Scenes/Main.unity
   - Assets/Scenes/Level1.unity
   - Assets/Scenes/Level2.unity
   - Assets/Scenes/End.unity
-  playerPath: C:/Users/class/Space Shooter/Game/Space Shooter.exe
+  playerPath: C:/Users/class/Space Shooter/Space Shooter/Space Shooter.exe

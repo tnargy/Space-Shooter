@@ -59,6 +59,16 @@ public class GM : MonoBehaviour
     public static void GameOver()
     {
         Debug.Log("Game Over!");
+
+        string[] tags = { "Enemy", "Loot" };
+        foreach (string tag in tags)
+        {
+            GameObject[] cleanHouse = GameObject.FindGameObjectsWithTag(tag);
+            foreach (GameObject item in cleanHouse)
+            {
+                Destroy(item);
+            }
+        }
         LevelLoader.LoadMainMenu();
     }
 
