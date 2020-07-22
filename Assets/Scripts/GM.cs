@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class GM : MonoBehaviour
 {
-    public LevelLoader ll;
     public WaveSpawner waveSpawner;
     public static bool canFire;
-    public int score = 0;
+    public static int round = 0;
+    public static int score = 0;
     private float playerSearch = 1f;
-    private int round = 1;
     private GameObject BossRef;
     private GameObject EnemyRef;
+    public Text scoreText;
+    public Text roundText;
 
 
     private void OnEnable()
@@ -18,40 +20,25 @@ public class GM : MonoBehaviour
         EnemyRef = (GameObject)Resources.Load("Enemy");
 
         waveSpawner = gameObject.GetComponent<WaveSpawner>();
+        CreateRound();
+        scoreText.text = "Score: 0";
     }
 
-    private void Start()
-    {
-        CreateWaves();
-    }
     private void Update()
     {
         canFire = (waveSpawner.state == WaveSpawner.SpawnState.WAITING);
 
-        if (round == 3)
-        {
-            //End Game Notice
-            if (ll == null)
-            {
-                if (Input.anyKeyDown)
-                {
-                    GameOver();
-                }
-            }
-            else
-            {
-                ll.LoadNextLevel();
-            }
-        }
-        //Player died GAME OVER
-        else if (!PlayerIsAlive())
+        if (!PlayerIsAlive())
         {
             GameOver();
         }
     }
 
-    private void CreateWaves()
+    private void CreateRound()
     { 
+        round++;
+        roundText.text = "Round: " + round.ToString();
+
         WaveSpawner.Wave level1 = new WaveSpawner.Wave
         {
             name = "Level 1",
@@ -78,9 +65,8 @@ public class GM : MonoBehaviour
 
     public void RoundComplete()
     {
-        round++;
         waveSpawner.waves = null;
-        CreateWaves();
+        CreateRound();
     }
 
     private bool PlayerIsAlive()
@@ -98,8 +84,6 @@ public class GM : MonoBehaviour
 
     public static void GameOver()
     {
-        Debug.Log("Game Over!");
-
         string[] tags = { "Enemy", "Loot" };
         foreach (string tag in tags)
         {
@@ -116,5 +100,6 @@ public class GM : MonoBehaviour
     {
         Debug.Log("Score!");
         score += points;
+        scoreText.text = "Score: " + score.ToString();
     }
 }

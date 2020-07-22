@@ -2,6 +2,7 @@
 
 public class Ship : MonoBehaviour
 {
+    public GameObject gm;
     public Rigidbody2D rb;
     public HealthBar heathBar;
     private SpriteRenderer sr;
@@ -27,9 +28,16 @@ public class Ship : MonoBehaviour
 
         explosionRef = Resources.Load("Explosion");
     }
-
+    
     public void TakeDamage()
     {
+        int score = 3 * GM.round;
+        if (gameObject.CompareTag("Player"))
+        {
+            score *= -1;
+        }
+        //gm.GetComponent<GM>().SendMessage("Score", (System.Int32)score);
+
         sr.material = hitEffect;
         if (--currentHealth <= 0)
         {

@@ -16,7 +16,7 @@ public class WaveSpawner : MonoBehaviour
     public Wave[] waves;
     private int nextWave = 0;
 
-    public float timeBetweenWaves = 5f;
+    public float timeBetweenWaves = 6f;
     public float waveCountDown;
 
     public SpawnState state = SpawnState.COUNTING;
@@ -91,7 +91,7 @@ public class WaveSpawner : MonoBehaviour
         {
             rowOffset += 10;
         }
-        Instantiate(_enemy, startingLocation + new Vector2(xOffset, yOffset), Quaternion.identity);
+        Instantiate(_enemy, startingLocation + new Vector2(xOffset + (0.5f * (yOffset%2)), yOffset), Quaternion.identity);
         return rowOffset;
     }
 

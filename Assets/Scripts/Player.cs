@@ -2,7 +2,6 @@
 
 public class Player : Ship
 {
-    public GameObject gm;
     public Animator animator;
 
     private Vector2 movement;

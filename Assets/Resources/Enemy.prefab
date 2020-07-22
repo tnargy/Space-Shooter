@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62c3c4286362ba4ebd887e706f9aceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 6882430751671477378, guid: 7f22642b2394cf340baafba30da05b43, type: 3}
   rb: {fileID: 4023441988673793044}
   heathBar: {fileID: 0}
   moveSpeed: 0.5
