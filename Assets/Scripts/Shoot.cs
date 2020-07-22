@@ -3,9 +3,9 @@
 public class Shoot : MonoBehaviour
 {
 
+    public GameObject ship;
     public GameObject beam;
     public Transform[] guns;
-    public GameObject mobileUI;
     public float force;
     public float randomOffset;
     public string target;
@@ -22,23 +22,17 @@ public class Shoot : MonoBehaviour
     {
         if (!PauseMenu.GameIsPaused)
         {
-            if (mobileUI != null)
+            if (ship.CompareTag("Player"))
             {
-                if (Input.GetButtonDown("Fire1") || Input.touchCount == 2)
+                if (Input.GetButtonDown("Fire1") && GM.canFire)
                 {
                     Fire();
                 }
             }
-            else
+            else if (Time.time > randomTime && force != 0)
             {
-                if (Time.time > randomTime)
-                {
-                    randomTime = Time.time + (float)Random.Range(0f, randomOffset);
-                    if (force != 0)
-                    {
-                        Fire();
-                    }
-                }
+                randomTime = Time.time + (float)Random.Range(0f, randomOffset);
+                Fire();
             }
         }
     }
