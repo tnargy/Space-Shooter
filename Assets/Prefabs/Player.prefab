@@ -164,13 +164,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 989859cf9338c6242906f8f2261ddf8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joystick: {fileID: 0}
   rb: {fileID: 896765956292995677}
-  animator: {fileID: 896765956292995675}
   heathBar: {fileID: 0}
   moveSpeed: 5
   maxHealth: 5
-  mobileUI: {fileID: 0}
+  gm: {fileID: 0}
+  animator: {fileID: 896765956292995675}
 --- !u!1 &896765956608834054
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,9 +213,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff3d5a0eb8c4484ab26b0d2ff9933f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ship: {fileID: 896765956292995672}
   beam: {fileID: 3664493080007875305, guid: d41e2616253a109439ee9ca888534b98, type: 3}
   guns:
   - {fileID: 896765956608834169}
-  mobileUI: {fileID: 0}
   force: 20
   randomOffset: 0
+  target: 

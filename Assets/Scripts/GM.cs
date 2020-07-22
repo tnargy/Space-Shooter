@@ -1,18 +1,17 @@
-﻿using System;
-using System.Collections;
-using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
+﻿using UnityEngine;
 
 public class GM : MonoBehaviour
 {
     public LevelLoader ll;
     private float enemySearch = 1f;
     private float playerSearch = 1f;
+    private int score = 0;
 
     private void Update()
     {
         if (!EnemyIsAlive())
         {
+            //End Game Notice
             if (ll == null)
             {
                 if (Input.anyKeyDown)
@@ -20,11 +19,13 @@ public class GM : MonoBehaviour
                     GameOver();
                 }
             }
+            //Next level
             else
             {
-                ll.LoadNextLevel();
+                //ll.LoadNextLevel();
             }
         }
+        //Player died GAME OVER
         else if (!PlayerIsAlive())
         {
             GameOver();
@@ -72,8 +73,9 @@ public class GM : MonoBehaviour
         LevelLoader.LoadMainMenu();
     }
 
-    public void Score()
+    public void Score(int points)
     {
         Debug.Log("Score!");
+        score += points;
     }
 }

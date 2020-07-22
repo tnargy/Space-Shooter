@@ -398,9 +398,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff3d5a0eb8c4484ab26b0d2ff9933f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ship: {fileID: 0}
   beam: {fileID: 3769915083805785070, guid: 41592ef333d1d5b449913a82225753cc, type: 3}
   guns: []
-  mobileUI: {fileID: 0}
   force: -5
   randomOffset: 5
   target: 
@@ -699,11 +699,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff3d5a0eb8c4484ab26b0d2ff9933f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ship: {fileID: 2490535138165628187}
   beam: {fileID: 3769915083805785070, guid: 41592ef333d1d5b449913a82225753cc, type: 3}
   guns:
   - {fileID: 4983533702647381934}
   - {fileID: 1532925542560297124}
-  mobileUI: {fileID: 0}
   force: 0
   randomOffset: 5
   target: Player
