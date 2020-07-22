@@ -6,7 +6,7 @@ public class Shoot : MonoBehaviour
     public GameObject beam;
     public Transform[] guns;
     public GameObject mobileUI;
-    public float force = 20f;
+    public float force;
     public float randomOffset;
     public string target;
 
@@ -34,7 +34,10 @@ public class Shoot : MonoBehaviour
                 if (Time.time > randomTime)
                 {
                     randomTime = Time.time + (float)Random.Range(0f, randomOffset);
-                    Fire();
+                    if (force != 0)
+                    {
+                        Fire();
+                    }
                 }
             }
         }

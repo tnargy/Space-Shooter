@@ -650,14 +650,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2490535138165628188}
-  hitEffect: {fileID: 8673423095576392688, guid: 4fd5a174695ff684ab591ce7f6e52aa2,
-    type: 3}
-  waypointsObj:
-  - {fileID: 2490535138165628187}
-  - {fileID: 0}
   heathBar: {fileID: 1532925542543017117}
   moveSpeed: 1
   maxHealth: 10
+  waypointsObj:
+  - {fileID: 2490535138165628187}
+  - {fileID: 0}
 --- !u!1 &8144299687360545556
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,6 +704,6 @@ MonoBehaviour:
   - {fileID: 4983533702647381934}
   - {fileID: 1532925542560297124}
   mobileUI: {fileID: 0}
-  force: -1
+  force: 0
   randomOffset: 5
   target: Player

@@ -146,11 +146,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 4023441988673793044}
   heathBar: {fileID: 0}
-  moveSpeed: 1
+  moveSpeed: 0.5
   maxHealth: 1
-  currentHealth: 0
-  hitEffect: {fileID: 8673423095576392688, guid: 4fd5a174695ff684ab591ce7f6e52aa2,
-    type: 3}
   waypointsObj:
   - {fileID: 4023441988673793043}
 --- !u!1 &7223869197800190492
@@ -200,6 +197,6 @@ MonoBehaviour:
   guns:
   - {fileID: 5795880756300254886}
   mobileUI: {fileID: 0}
-  force: -5
+  force: 0
   randomOffset: 10
   target: 
