@@ -35,31 +35,33 @@ public class GM : MonoBehaviour
 
     private void CreateRound()
     { 
+        EnemyRef.GetComponentInChildren<Shoot>().force = -5f * round * .5f;
+        BossRef.GetComponentInChildren<Shoot>().force = -1f * round * .25f;
         round++;
         roundText.text = "Round: " + round.ToString();
-
-        WaveSpawner.Wave level1 = new WaveSpawner.Wave
+        
+        WaveSpawner.Wave level = new WaveSpawner.Wave
         {
-            name = "Level 1",
+            name = "Level " + round,
             enemy = new GameObject[33]
         };
-        for (int i = 0; i < level1.enemy.Length; i++)
+        for (int i = 0; i < level.enemy.Length; i++)
         {
-            level1.enemy[i] = EnemyRef;
+            level.enemy[i] = EnemyRef;
         }
 
-        WaveSpawner.Wave level1Boss = new WaveSpawner.Wave
+        WaveSpawner.Wave levelBoss = new WaveSpawner.Wave
         {
-            name = "Level 1 Boss",
+            name = "Level " + round + " Boss",
             enemy = new GameObject[12]
         };
-        level1Boss.enemy[0] = BossRef;
-        for (int i = 1; i < level1Boss.enemy.Length; i++)
+        levelBoss.enemy[0] = BossRef;
+        for (int i = 1; i < levelBoss.enemy.Length; i++)
         {
-            level1Boss.enemy[i] = EnemyRef;
+            levelBoss.enemy[i] = EnemyRef;
         }
 
-        waveSpawner.waves = new WaveSpawner.Wave[] { level1, level1Boss };
+        waveSpawner.waves = new WaveSpawner.Wave[] { level, levelBoss };
     }
 
     public void RoundComplete()
@@ -95,27 +97,8 @@ public class GM : MonoBehaviour
         LevelLoader.LoadMainMenu();
     }
 
-    public void Score(string damage)
+    public void Score(int points)
     {
-        int points = 0;
-        switch (damage)
-        {
-            case "PlayerDamage":
-                points = -3 * round;
-                break;
-            case "EnemyDamage":
-                points = 3 * round; 
-                break;
-            case "EnemyKill":
-                points = 5 * round;
-                break;
-            case "Loot":
-                points = 100;
-                break;
-            case "PlayerKill":
-            default:
-                break;
-        }
         score += points;
         scoreText.text = "Score: " + score.ToString();
     }

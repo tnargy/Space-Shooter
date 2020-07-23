@@ -32,7 +32,18 @@ public class Player : Ship
         else if (collision.gameObject.CompareTag("Loot"))
         {
             Destroy(collision.gameObject);
-            gm.SendMessage("Score", "Loot");
+            gm.SendMessage("Score", 100);
         }
+    }
+
+    private void ShipHit(int points)
+    {
+        points = gm.GetComponent<GM>().round * points * -1;
+        gm.SendMessage("Score", points);
+    }
+
+    private void ShipDestroyed(int points)
+    {
+        return;
     }
 }

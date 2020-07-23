@@ -8,6 +8,10 @@ public class Enemy : Ship
     private Vector2[] waypoints;
     private int direction = 0;
 
+    private void OnEnable()
+    {
+        gm = GameObject.Find("GM");
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -43,5 +47,16 @@ public class Enemy : Ship
             GameObject loot = (GameObject)Instantiate(lootRef);
             loot.transform.position = transform.position;
         }
+    }
+    private void ShipHit(int points)
+    {
+        points = gm.GetComponent<GM>().round * points;
+        gm.SendMessage("Score", points);
+    }
+    
+    private void ShipDestroyed(int points)
+    {
+        points = gm.GetComponent<GM>().round * points;
+        gm.SendMessage("Score", points);
     }
 }

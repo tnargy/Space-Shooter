@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Runtime.InteropServices.ComTypes;
+using UnityEngine;
 
 public class Ship : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class Ship : MonoBehaviour
     public int maxHealth;
     private int currentHealth;
 
-    void OnEnable()
+    void Awake()
     {
         currentHealth = maxHealth;
 
@@ -31,26 +32,16 @@ public class Ship : MonoBehaviour
     
     public void TakeDamage()
     {
-        string ship;
-        if (gameObject.CompareTag("Player"))
-        {
-            ship = "Player";
-        }
-        else
-        {
-            ship = "Enemy";
-        }
-        gm.GetComponent<GM>().Score(ship + "Damage");
-
         sr.material = hitEffect;
         if (--currentHealth <= 0)
         {
-            gm.GetComponent<GM>().Score(ship + "Kill");
+            gameObject.SendMessage("ShipDestroyed", 5);
             Kill();
         }
         else
         {
             Invoke("RestMaterial", .1f);
+            gameObject.SendMessage("ShipHit", 3);
         }
 
         if (heathBar != null)
