@@ -24,16 +24,6 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.CompareTag(targetTag))
         {
             Destroy(gameObject);
-
-            int score = 3 * GM.round;
-            if (collision.gameObject.CompareTag("Player"))
-            {
-                score *= -1;
-            }
-            GetComponent<GM>().SendMessage("Score", score);
-
-
-
             collision.gameObject.SendMessage("TakeDamage");
         }
     }

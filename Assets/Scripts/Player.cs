@@ -32,7 +32,7 @@ public class Player : Ship
         else if (collision.gameObject.CompareTag("Loot"))
         {
             Destroy(collision.gameObject);
-            gm.SendMessage("Score", 100);
+            gm.SendMessage("Score", "Loot");
         }
     }
 }

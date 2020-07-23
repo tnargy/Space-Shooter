@@ -5,14 +5,13 @@ public class GM : MonoBehaviour
 {
     public WaveSpawner waveSpawner;
     public static bool canFire;
-    public static int round = 0;
-    public static int score = 0;
+    public int round = 0;
+    public int score = 0;
     private float playerSearch = 1f;
     private GameObject BossRef;
     private GameObject EnemyRef;
     public Text scoreText;
     public Text roundText;
-
 
     private void OnEnable()
     {
@@ -96,9 +95,27 @@ public class GM : MonoBehaviour
         LevelLoader.LoadMainMenu();
     }
 
-    public void Score(int points)
+    public void Score(string damage)
     {
-        Debug.Log("Score!");
+        int points = 0;
+        switch (damage)
+        {
+            case "PlayerDamage":
+                points = -3 * round;
+                break;
+            case "EnemyDamage":
+                points = 3 * round; 
+                break;
+            case "EnemyKill":
+                points = 5 * round;
+                break;
+            case "Loot":
+                points = 100;
+                break;
+            case "PlayerKill":
+            default:
+                break;
+        }
         score += points;
         scoreText.text = "Score: " + score.ToString();
     }

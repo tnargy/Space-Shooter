@@ -31,9 +31,21 @@ public class Ship : MonoBehaviour
     
     public void TakeDamage()
     {
+        string ship;
+        if (gameObject.CompareTag("Player"))
+        {
+            ship = "Player";
+        }
+        else
+        {
+            ship = "Enemy";
+        }
+        gm.GetComponent<GM>().Score(ship + "Damage");
+
         sr.material = hitEffect;
         if (--currentHealth <= 0)
         {
+            gm.GetComponent<GM>().Score(ship + "Kill");
             Kill();
         }
         else
