@@ -31,13 +31,6 @@ public class Ship : MonoBehaviour
     
     public void TakeDamage()
     {
-        int score = 3 * GM.round;
-        if (gameObject.CompareTag("Player"))
-        {
-            score *= -1;
-        }
-        //gm.GetComponent<GM>().SendMessage("Score", (System.Int32)score);
-
         sr.material = hitEffect;
         if (--currentHealth <= 0)
         {
