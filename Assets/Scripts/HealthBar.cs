@@ -1,4 +1,3 @@
-﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,7 +21,7 @@ public class HealthBar : MonoBehaviour
         fill.color = gradient.Evaluate(slider.normalizedValue);
     }
 
-    internal void SetMaxHealth(float timeBeforeWave)
+    public void SetMaxHealth(float timeBeforeWave)
     {
         slider.maxValue = timeBeforeWave;
         slider.value = timeBeforeWave;
@@ -30,7 +29,7 @@ public class HealthBar : MonoBehaviour
         fill.color = gradient.Evaluate(1f);
     }
 
-    internal void SetHealth(float timeBeforeWave)
+    public void SetHealth(float timeBeforeWave)
     {
         slider.value = timeBeforeWave;
         fill.color = gradient.Evaluate(slider.normalizedValue);
