@@ -144,9 +144,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62c3c4286362ba4ebd887e706f9aceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 0}
   rb: {fileID: 4023441988673793044}
   heathBar: {fileID: 0}
-  moveSpeed: 0.5
+  moveSpeed: 0
   maxHealth: 1
   waypointsObj:
   - {fileID: 4023441988673793043}
@@ -193,10 +194,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff3d5a0eb8c4484ab26b0d2ff9933f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ship: {fileID: 4023441988673793043}
   beam: {fileID: 3769915083805785070, guid: 41592ef333d1d5b449913a82225753cc, type: 3}
   guns:
   - {fileID: 5795880756300254886}
-  mobileUI: {fileID: 0}
   force: 0
   randomOffset: 10
   target: 

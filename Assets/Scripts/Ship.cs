@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System.Runtime.InteropServices.ComTypes;
+using UnityEngine;
 
 public class Ship : MonoBehaviour
 {
+    public GameObject gm;
     public Rigidbody2D rb;
     public HealthBar heathBar;
     private SpriteRenderer sr;
@@ -12,7 +14,7 @@ public class Ship : MonoBehaviour
     public int maxHealth;
     private int currentHealth;
 
-    void OnEnable()
+    void Awake()
     {
         currentHealth = maxHealth;
 
@@ -27,17 +29,19 @@ public class Ship : MonoBehaviour
 
         explosionRef = Resources.Load("Explosion");
     }
-
+    
     public void TakeDamage()
     {
         sr.material = hitEffect;
         if (--currentHealth <= 0)
         {
+            gameObject.SendMessage("ShipDestroyed", 5);
             Kill();
         }
         else
         {
             Invoke("RestMaterial", .1f);
+            gameObject.SendMessage("ShipHit", 3);
         }
 
         if (heathBar != null)

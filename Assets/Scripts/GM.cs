@@ -1,34 +1,73 @@
-﻿using System;
-using System.Collections;
-using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class GM : MonoBehaviour
 {
-    public LevelLoader ll;
-    private float enemySearch = 1f;
+    public WaveSpawner waveSpawner;
+    public static bool canFire;
+    public int round = 0;
+    public int score = 0;
     private float playerSearch = 1f;
+    private GameObject BossRef;
+    private GameObject EnemyRef;
+    public Text scoreText;
+    public Text roundText;
+
+    private void OnEnable()
+    {
+        BossRef = (GameObject)Resources.Load("Boss");
+        EnemyRef = (GameObject)Resources.Load("Enemy");
+
+        waveSpawner = gameObject.GetComponent<WaveSpawner>();
+        CreateRound();
+        scoreText.text = "Score: 0";
+    }
 
     private void Update()
     {
-        if (!EnemyIsAlive())
-        {
-            if (ll == null)
-            {
-                if (Input.anyKeyDown)
-                {
-                    GameOver();
-                }
-            }
-            else
-            {
-                ll.LoadNextLevel();
-            }
-        }
-        else if (!PlayerIsAlive())
+        canFire = (waveSpawner.state == WaveSpawner.SpawnState.WAITING);
+
+        if (!PlayerIsAlive())
         {
             GameOver();
         }
+    }
+
+    private void CreateRound()
+    { 
+        EnemyRef.GetComponentInChildren<Shoot>().force = -5f * round * .5f;
+        BossRef.GetComponentInChildren<Shoot>().force = -1f * round * .25f;
+        round++;
+        roundText.text = "Round: " + round.ToString();
+        
+        WaveSpawner.Wave level = new WaveSpawner.Wave
+        {
+            name = "Level " + round,
+            enemy = new GameObject[33]
+        };
+        for (int i = 0; i < level.enemy.Length; i++)
+        {
+            level.enemy[i] = EnemyRef;
+        }
+
+        WaveSpawner.Wave levelBoss = new WaveSpawner.Wave
+        {
+            name = "Level " + round + " Boss",
+            enemy = new GameObject[12]
+        };
+        levelBoss.enemy[0] = BossRef;
+        for (int i = 1; i < levelBoss.enemy.Length; i++)
+        {
+            levelBoss.enemy[i] = EnemyRef;
+        }
+
+        waveSpawner.waves = new WaveSpawner.Wave[] { level, levelBoss };
+    }
+
+    public void RoundComplete()
+    {
+        waveSpawner.waves = null;
+        CreateRound();
     }
 
     private bool PlayerIsAlive()
@@ -43,23 +82,9 @@ public class GM : MonoBehaviour
         }
         return true;
     }
-    private bool EnemyIsAlive()
-    {
-        enemySearch -= Time.deltaTime;
-        if (enemySearch <= 0f)
-        {
-            if (GameObject.FindGameObjectWithTag("Enemy") == null && GameObject.FindGameObjectWithTag("Loot") == null)
-            {
-                return false;
-            }
-        }
-        return true;
-    }
 
     public static void GameOver()
     {
-        Debug.Log("Game Over!");
-
         string[] tags = { "Enemy", "Loot" };
         foreach (string tag in tags)
         {
@@ -72,8 +97,9 @@ public class GM : MonoBehaviour
         LevelLoader.LoadMainMenu();
     }
 
-    public void Score()
+    public void Score(int points)
     {
-        Debug.Log("Score!");
+        score += points;
+        scoreText.text = "Score: " + score.ToString();
     }
 }
