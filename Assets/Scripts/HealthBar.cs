@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
@@ -20,4 +21,20 @@ public class HealthBar : MonoBehaviour
         slider.value = health;
         fill.color = gradient.Evaluate(slider.normalizedValue);
     }
+
+    internal void SetMaxHealth(float timeBeforeWave)
+    {
+        slider.maxValue = timeBeforeWave;
+        slider.value = timeBeforeWave;
+
+        fill.color = gradient.Evaluate(1f);
+    }
+
+    internal void SetHealth(float timeBeforeWave)
+    {
+        slider.value = timeBeforeWave;
+        fill.color = gradient.Evaluate(slider.normalizedValue);
+    }
+
+
 }
