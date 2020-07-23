@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class GM : MonoBehaviour
 {
     public WaveSpawner waveSpawner;
+    public HealthBar waveTimer;
     public static bool canFire;
     public int round = 0;
     public int score = 0;
@@ -12,6 +13,7 @@ public class GM : MonoBehaviour
     private GameObject EnemyRef;
     public Text scoreText;
     public Text roundText;
+    private float timeBeforeWave;
 
     private void OnEnable()
     {
@@ -21,10 +23,16 @@ public class GM : MonoBehaviour
         waveSpawner = gameObject.GetComponent<WaveSpawner>();
         CreateRound();
         scoreText.text = "Score: 0";
+
+        timeBeforeWave = (int)waveSpawner.timeBetweenWaves;
+        waveTimer.SetMaxHealth(timeBeforeWave);
     }
 
     private void Update()
     {
+        waveTimer.gameObject.SetActive((waveSpawner.state == WaveSpawner.SpawnState.COUNTING));
+        waveTimer.SetHealth(waveSpawner.waveCountDown);
+        
         canFire = (waveSpawner.state == WaveSpawner.SpawnState.WAITING);
 
         if (!PlayerIsAlive())
