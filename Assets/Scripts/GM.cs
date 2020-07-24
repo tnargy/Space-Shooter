@@ -10,6 +10,7 @@ public class GM : MonoBehaviour
     public static bool canFire;
     public int round = 0;
     public int score = 0;
+    public int loot = 0;
     private float playerSearch = 1f;
     private GameObject BossRef;
     private GameObject EnemyRef;
@@ -55,6 +56,7 @@ public class GM : MonoBehaviour
             name = "Level " + round,
             enemy = new GameObject[33]
         };
+        if (round == 3) EnemyRef.GetComponent<Enemy>().moveSpeed = 1;
         for (int i = 0; i < level.enemy.Length; i++)
         {
             level.enemy[i] = EnemyRef;
@@ -112,6 +114,11 @@ public class GM : MonoBehaviour
     {
         score += points;
         scoreText.text = "Score: " + score.ToString();
+    }
+
+    public void Loot(int points)
+    {
+        score += points;
     }
 
     public void checkForHighScore()

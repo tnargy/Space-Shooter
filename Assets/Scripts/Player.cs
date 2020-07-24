@@ -33,6 +33,7 @@ public class Player : Ship
         {
             Destroy(collision.gameObject);
             gm.SendMessage("Score", 100);
+            gm.SendMessage("Loot", 100);
         }
     }
 
