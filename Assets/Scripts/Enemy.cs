@@ -11,6 +11,10 @@ public class Enemy : Ship
     private void OnEnable()
     {
         gm = GameObject.Find("GM");
+
+        int enemySlice = Random.Range(0, 3);
+        Sprite[] enemy = Resources.LoadAll<Sprite>("Art/Enemy");
+        gameObject.GetComponent<SpriteRenderer>().sprite = (Sprite)enemy[enemySlice];
     }
 
     // Start is called before the first frame update
@@ -22,7 +26,7 @@ public class Enemy : Ship
             waypoints[i] = waypointsObj[i].transform.position;
         }
 
-        lootRef = Resources.Load("Loot");
+        lootRef = Resources.Load("Prefabs/Loot");
     }
 
     private void FixedUpdate()

@@ -27,7 +27,7 @@ public class Ship : MonoBehaviour
         hitEffect = Resources.Load("WhiteFlash", typeof(Material)) as Material;
         matDefault = sr.material;
 
-        explosionRef = Resources.Load("Explosion");
+        explosionRef = Resources.Load("Prefabs/Explosion");
     }
     
     public void TakeDamage()

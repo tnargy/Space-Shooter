@@ -17,8 +17,8 @@ public class GM : MonoBehaviour
 
     private void OnEnable()
     {
-        BossRef = (GameObject)Resources.Load("Boss");
-        EnemyRef = (GameObject)Resources.Load("Enemy");
+        BossRef = (GameObject)Resources.Load("Prefabs/Boss");
+        EnemyRef = (GameObject)Resources.Load("Prefabs/Enemy");
 
         waveSpawner = gameObject.GetComponent<WaveSpawner>();
         CreateRound();

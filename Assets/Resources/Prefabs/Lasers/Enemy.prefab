@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 471076006095871428}
   - component: {fileID: 1329405203474602184}
   m_Layer: 0
-  m_Name: beams_5
+  m_Name: Enemy
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -224264422132340645, guid: 6c6aa519f75b0bb4ca4e167fc6d53add,
+  m_Sprite: {fileID: -342841500392956471, guid: 6c6aa519f75b0bb4ca4e167fc6d53add,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -134,5 +134,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b116e38d8b50d44a76967dc319be1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gm: {fileID: 6882430751671477378, guid: 7f22642b2394cf340baafba30da05b43, type: 3}
   targetTag: Player
