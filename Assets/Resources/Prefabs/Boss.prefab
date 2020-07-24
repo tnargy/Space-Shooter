@@ -654,7 +654,7 @@ MonoBehaviour:
   gm: {fileID: 0}
   rb: {fileID: 2490535138165628188}
   heathBar: {fileID: 1532925542543017117}
-  moveSpeed: 1
+  moveSpeed: 1.5
   maxHealth: 10
   waypointsObj:
   - {fileID: 2490535138165628187}

@@ -2466,7 +2466,7 @@ PrefabInstance:
     - target: {fileID: 6882430751671477439, guid: 7f22642b2394cf340baafba30da05b43,
         type: 3}
       propertyPath: timeBetweenWaves
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f22642b2394cf340baafba30da05b43, type: 3}
