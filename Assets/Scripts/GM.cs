@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Runtime.CompilerServices;
+using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class GM : MonoBehaviour
@@ -102,6 +104,7 @@ public class GM : MonoBehaviour
                 Destroy(item);
             }
         }
+        GameObject.Find("GM").SendMessage("checkForHighScore");
         LevelLoader.LoadMainMenu();
     }
 
@@ -109,5 +112,13 @@ public class GM : MonoBehaviour
     {
         score += points;
         scoreText.text = "Score: " + score.ToString();
+    }
+
+    public void checkForHighScore()
+    {
+        if (score > PlayerPrefs.GetInt("highscore", 0))
+        {
+            PlayerPrefs.SetInt("highscore", score);
+        }
     }
 }
