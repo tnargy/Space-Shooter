@@ -3,7 +3,7 @@
 public class Player : Ship
 {
     public Animator animator;
-
+    public static bool AtMaxHealth = true;
     private Vector2 movement;
 
     void Update()
@@ -16,6 +16,8 @@ public class Player : Ship
 
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Speed", Mathf.Abs(movement.x));
+
+        AtMaxHealth = (currentHealth == maxHealth);
     }
 
     private void FixedUpdate()

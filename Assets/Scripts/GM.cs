@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class GM : MonoBehaviour
 {
+    public GameObject shopUI;
     public WaveSpawner waveSpawner;
     public HealthBar waveTimer;
     public static bool canFire;
@@ -32,6 +33,12 @@ public class GM : MonoBehaviour
 
     private void Update()
     {
+        
+        if (shopUI.activeSelf)
+        {
+            return;
+        }    
+
         waveTimer.gameObject.SetActive((waveSpawner.state == WaveSpawner.SpawnState.COUNTING));
         waveTimer.SetHealth(waveSpawner.waveCountDown);
 
@@ -73,11 +80,18 @@ public class GM : MonoBehaviour
 
     public void RoundComplete()
     {
+        OpenShop();
+
         waveSpawner.waves = null;
         round++;
         AdjustDifficulty();
         CreateRound();
     }
+
+    private void OpenShop()
+    {
+        shopUI.SetActive(true);
+    }    
 
     private void AdjustDifficulty()
     {
@@ -155,7 +169,7 @@ public class GM : MonoBehaviour
 
     public void Loot(int points)
     {
-        score += points;
+        loot += points;
     }
 
     public void checkForHighScore()

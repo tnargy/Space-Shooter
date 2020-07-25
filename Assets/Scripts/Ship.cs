@@ -1,5 +1,4 @@
-﻿using System.Runtime.InteropServices.ComTypes;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Ship : MonoBehaviour
 {
@@ -12,7 +11,7 @@ public class Ship : MonoBehaviour
     private Object explosionRef;
     public float moveSpeed;
     public int maxHealth;
-    private int currentHealth;
+    public int currentHealth;
 
     void Awake()
     {
@@ -29,7 +28,16 @@ public class Ship : MonoBehaviour
 
         explosionRef = Resources.Load("Prefabs/Explosion");
     }
-    
+
+    public void IncreaseHealth(int amount)
+    {
+        if (currentHealth < maxHealth)
+            currentHealth += amount;
+        if (heathBar != null)
+        {
+            heathBar.SetHealth(currentHealth);
+        }
+    }
     public void TakeDamage()
     {
         sr.material = hitEffect;
