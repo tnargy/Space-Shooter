@@ -41,6 +41,7 @@ public class Player : Ship
     {
         points = gm.GetComponent<GM>().round * points * -1;
         gm.SendMessage("Score", points);
+        gameObject.GetComponent<AudioSource>().Play();
     }
 
     private void ShipDestroyed(int points)

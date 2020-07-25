@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ship: {fileID: 2490535138165628187}
-  beam: {fileID: 3769915083805785070, guid: 41592ef333d1d5b449913a82225753cc, type: 3}
+  beam: {fileID: 3344667957208729525, guid: 9b7ce08ea14340e45a7167928d845296, type: 3}
   guns: []
   force: 0
   randomOffset: 5
@@ -733,7 +733,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ship: {fileID: 2490535138165628187}
-  beam: {fileID: 3769915083805785070, guid: 41592ef333d1d5b449913a82225753cc, type: 3}
+  beam: {fileID: 3344667957208729525, guid: 9b7ce08ea14340e45a7167928d845296, type: 3}
   guns:
   - {fileID: 4983533702647381934}
   - {fileID: 1532925542560297124}

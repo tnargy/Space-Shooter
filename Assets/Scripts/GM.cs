@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class GM : MonoBehaviour
@@ -24,6 +22,7 @@ public class GM : MonoBehaviour
         EnemyRef = (GameObject)Resources.Load("Prefabs/Enemy");
 
         waveSpawner = gameObject.GetComponent<WaveSpawner>();
+        round++;
         CreateRound();
         scoreText.text = "Score: 0";
 
@@ -35,7 +34,7 @@ public class GM : MonoBehaviour
     {
         waveTimer.gameObject.SetActive((waveSpawner.state == WaveSpawner.SpawnState.COUNTING));
         waveTimer.SetHealth(waveSpawner.waveCountDown);
-        
+
         canFire = (waveSpawner.state == WaveSpawner.SpawnState.WAITING);
 
         if (!PlayerIsAlive())
@@ -45,18 +44,14 @@ public class GM : MonoBehaviour
     }
 
     private void CreateRound()
-    { 
-        EnemyRef.GetComponentInChildren<Shoot>().force = -5f * round * .5f;
-        BossRef.GetComponentInChildren<Shoot>().force = -1f * round * .25f;
-        round++;
+    {
         roundText.text = "Round: " + round.ToString();
-        
+
         WaveSpawner.Wave level = new WaveSpawner.Wave
         {
             name = "Level " + round,
             enemy = new GameObject[33]
         };
-        if (round == 3) EnemyRef.GetComponent<Enemy>().moveSpeed = 1;
         for (int i = 0; i < level.enemy.Length; i++)
         {
             level.enemy[i] = EnemyRef;
@@ -79,7 +74,49 @@ public class GM : MonoBehaviour
     public void RoundComplete()
     {
         waveSpawner.waves = null;
+        round++;
+        AdjustDifficulty();
         CreateRound();
+    }
+
+    private void AdjustDifficulty()
+    {
+        //Move enemies starting with round 2
+        if (round == 2)
+        {
+            EnemyRef.GetComponent<Enemy>().moveSpeed = 1;
+        }
+        //Start firing back at player starting round 3
+        else if (round == 3)
+        { 
+            EnemyRef.GetComponentInChildren<Shoot>().force = -5f * .5f;
+            BossRef.GetComponentInChildren<Shoot>().force = -1f * .25f;
+        }
+        //Randomly increase firing or movement
+        else
+        {
+            //Enemy Changes
+            switch(Random.Range(0, 3))
+            {
+                case 0:
+                    //Increase Speed
+                    EnemyRef.GetComponent<Enemy>().moveSpeed += 0.5f;
+                    break;
+                case 1:
+                    //Increase Bullets
+                    EnemyRef.GetComponentInChildren<Shoot>().force -= 0.25f;
+                    break;
+                case 2:
+                    //Increase Firing Rate but cap it.
+                    if (EnemyRef.GetComponentInChildren<Shoot>().randomOffset > 5)
+                        EnemyRef.GetComponentInChildren<Shoot>().randomOffset -= 1f;
+                    break;
+                default:
+                    break;
+            }
+
+            //Boss Changes
+        }
     }
 
     private bool PlayerIsAlive()
