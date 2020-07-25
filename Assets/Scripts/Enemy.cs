@@ -12,8 +12,8 @@ public class Enemy : Ship
     {
         gm = GameObject.Find("GM");
 
-        int enemySlice = Random.Range(0, 3);
         Sprite[] enemy = Resources.LoadAll<Sprite>("Art/Enemy");
+        int enemySlice = Random.Range(0, enemy.Length);
         gameObject.GetComponent<SpriteRenderer>().sprite = (Sprite)enemy[enemySlice];
     }
 
