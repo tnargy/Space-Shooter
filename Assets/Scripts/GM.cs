@@ -80,6 +80,7 @@ public class GM : MonoBehaviour
 
     public void RoundComplete()
     {
+        GameObject.FindGameObjectWithTag("Player").gameObject.SendMessage("SpreadFire", false);
         OpenShop();
 
         waveSpawner.waves = null;

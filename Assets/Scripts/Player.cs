@@ -60,5 +60,7 @@ public class Player : Ship
     private void SpreadFire(bool toggle)
     {
         // Turn on/off Spread Fire
+        gameObject.GetComponentInChildren<Shoot>().guns[1].gameObject.SetActive(toggle);
+        gameObject.GetComponentInChildren<Shoot>().guns[2].gameObject.SetActive(toggle);
     }
 }
