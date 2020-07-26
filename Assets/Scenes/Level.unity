@@ -2096,6 +2096,7 @@ MonoBehaviour:
   healthBtn: {fileID: 1716055241}
   fasterBtn: {fileID: 1796966233}
   strongerBtn: {fileID: 1384507699}
+  spreadBtn: {fileID: 1788475200}
 --- !u!1 &987649806
 GameObject:
   m_ObjectHideFlags: 0
@@ -3715,7 +3716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1788475199
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4519,24 +4520,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 896765956292995674, guid: 4f342dd2a7850ad4d9704ecada16f9aa,
         type: 3}
-      propertyPath: joystick
+      propertyPath: gm
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 762265887}
     - target: {fileID: 896765956292995674, guid: 4f342dd2a7850ad4d9704ecada16f9aa,
         type: 3}
       propertyPath: heathBar
       value: 
       objectReference: {fileID: 1677649555}
-    - target: {fileID: 896765956292995674, guid: 4f342dd2a7850ad4d9704ecada16f9aa,
-        type: 3}
-      propertyPath: mobileUI
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 896765956292995674, guid: 4f342dd2a7850ad4d9704ecada16f9aa,
-        type: 3}
-      propertyPath: gm
-      value: 
-      objectReference: {fileID: 762265887}
     - target: {fileID: 896765956292995679, guid: 4f342dd2a7850ad4d9704ecada16f9aa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4591,11 +4582,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 896765956608834168, guid: 4f342dd2a7850ad4d9704ecada16f9aa,
-        type: 3}
-      propertyPath: mobileUI
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f342dd2a7850ad4d9704ecada16f9aa, type: 3}

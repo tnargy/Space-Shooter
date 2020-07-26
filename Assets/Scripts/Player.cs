@@ -56,4 +56,9 @@ public class Player : Ship
         GameObject Beam = gameObject.GetComponentInChildren<Shoot>().beam;
         Beam.GetComponent<Bullet>().damage += 1;
     }
+
+    private void SpreadFire(bool toggle)
+    {
+        // Turn on/off Spread Fire
+    }
 }
