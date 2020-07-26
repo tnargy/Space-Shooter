@@ -8,8 +8,12 @@ public class Shop : MonoBehaviour
     public GameObject shopUI;
     public Text loot;
     public Button healthBtn;
+    public Button fasterBtn;
+    public Button strongerBtn;
 
-    private int healthCost = 500;
+    private const int healthCost = 500;
+    private const int fasterCost = 1000;
+    private const int strongerCost = 2000;
 
     private void OnEnable()
     {
@@ -22,6 +26,8 @@ public class Shop : MonoBehaviour
     private void Update()
     {
         healthBtn.interactable = !Player.AtMaxHealth && gm.loot >= healthCost;
+        fasterBtn.interactable = gm.loot >= fasterCost;
+        strongerBtn.interactable = gm.loot >= strongerCost;
         loot.text = "Loot: " + gm.loot.ToString();
     }
 
@@ -32,6 +38,18 @@ public class Shop : MonoBehaviour
             player.SendMessage("IncreaseHealth", 1);
             gm.Loot(-healthCost);
         }
+    }
+
+    public void Faster()
+    {
+        player.SendMessage("Faster");
+        gm.Loot(-fasterCost);
+    }   
+    
+    public void Stronger()
+    {
+        player.SendMessage("Stronger");
+        gm.Loot(-strongerCost);
     }
 
     public void Continue()

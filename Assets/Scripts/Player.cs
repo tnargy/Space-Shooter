@@ -50,4 +50,10 @@ public class Player : Ship
     {
         return;
     }
+
+    private void Stronger()
+    {
+        GameObject Beam = gameObject.GetComponentInChildren<Shoot>().beam;
+        Beam.GetComponent<Bullet>().damage += 1;
+    }
 }

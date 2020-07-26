@@ -109,6 +109,12 @@ public class GM : MonoBehaviour
         //Randomly increase firing or movement
         else
         {
+            if (round % 5 == 0)
+            {
+                EnemyRef.GetComponent<Enemy>().maxHealth *= 2;
+                BossRef.GetComponent<Enemy>().maxHealth *= 2;
+            }
+
             //Enemy Changes
             switch(Random.Range(0, 3))
             {
