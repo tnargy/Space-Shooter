@@ -33,9 +33,10 @@ public class Player : Ship
         }
         else if (collision.gameObject.CompareTag("Loot"))
         {
+            int score = collision.gameObject.GetComponent<Loot>().value;
             Destroy(collision.gameObject);
-            gm.SendMessage("Score", 100);
-            gm.SendMessage("Loot", 100);
+            gm.SendMessage("Score", score);
+            gm.SendMessage("Loot", score);
         }
     }
 
@@ -62,5 +63,10 @@ public class Player : Ship
         // Turn on/off Spread Fire
         gameObject.GetComponentInChildren<Shoot>().guns[1].gameObject.SetActive(toggle);
         gameObject.GetComponentInChildren<Shoot>().guns[2].gameObject.SetActive(toggle);
+    }
+
+    private void ShieldsUp()
+    {
+        gameObject.GetComponentInChildren<Shield>(true).gameObject.SetActive(true);
     }
 }

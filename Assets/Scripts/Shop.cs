@@ -11,11 +11,13 @@ public class Shop : MonoBehaviour
     public Button fasterBtn;
     public Button strongerBtn;
     public Button spreadBtn;
+    public Button shieldBtn;
 
     private const int healthCost = 500;
     private const int fasterCost = 1000;
     private const int strongerCost = 2000;
     private const int spreadCost = 5000;
+    private const int shieldCost = 10000;
 
     private void OnEnable()
     {
@@ -31,6 +33,7 @@ public class Shop : MonoBehaviour
         fasterBtn.interactable = gm.loot >= fasterCost;
         strongerBtn.interactable = gm.loot >= strongerCost;
         spreadBtn.interactable = gm.loot >= spreadCost;
+        shieldBtn.interactable = gm.loot >= shieldCost;
         loot.text = "Loot: " + gm.loot.ToString();
     }
 
@@ -59,6 +62,12 @@ public class Shop : MonoBehaviour
     {
         player.SendMessage("SpreadFire", true);
         gm.Loot(-spreadCost);
+    }
+
+    public void Shield()
+    {
+        player.SendMessage("ShieldsUp");
+        gm.Loot(-shieldCost);
     }
 
     public void Continue()
