@@ -49,6 +49,12 @@ public class Enemy : Ship
         if (Random.Range(0, 10) == 0)
         {
             GameObject loot = (GameObject)Instantiate(lootRef);
+            if (Random.Range(0,10) == 0)
+            {
+                //Super
+                loot.GetComponent<SpriteRenderer>().color = Color.green;
+                loot.GetComponent<Loot>().value = 500;
+            }
             loot.transform.position = transform.position;
         }
     }

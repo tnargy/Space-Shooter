@@ -41,6 +41,9 @@ public class Shoot : MonoBehaviour
     {
         foreach (Transform gun in guns)
         {
+            if (!gun.gameObject.activeSelf)
+                return;
+
             GameObject bullet = Instantiate(beam, gun.position, gun.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             if (target == "")

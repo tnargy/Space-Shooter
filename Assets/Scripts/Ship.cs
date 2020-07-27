@@ -29,7 +29,12 @@ public class Ship : MonoBehaviour
         explosionRef = Resources.Load("Prefabs/Explosion");
     }
 
-    public void IncreaseHealth(int amount)
+    private void Faster()
+    {
+        moveSpeed += 1;
+    }    
+
+    private void IncreaseHealth(int amount)
     {
         if (currentHealth < maxHealth)
             currentHealth += amount;
@@ -38,10 +43,11 @@ public class Ship : MonoBehaviour
             heathBar.SetHealth(currentHealth);
         }
     }
-    public void TakeDamage()
+    private void TakeDamage(int damage)
     {
         sr.material = hitEffect;
-        if (--currentHealth <= 0)
+        currentHealth -= damage;
+        if (currentHealth <= 0)
         {
             gameObject.SendMessage("ShipDestroyed", 5);
             Kill();

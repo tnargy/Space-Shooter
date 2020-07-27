@@ -3,6 +3,7 @@
 public class Bullet : MonoBehaviour
 {
     public string targetTag;
+    public int damage = 1;
 
     private void OnEnable()
     {
@@ -24,7 +25,7 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.CompareTag(targetTag))
         {
             Destroy(gameObject);
-            collision.gameObject.SendMessage("TakeDamage");
+            collision.gameObject.SendMessage("TakeDamage", damage);
         }
     }
 }

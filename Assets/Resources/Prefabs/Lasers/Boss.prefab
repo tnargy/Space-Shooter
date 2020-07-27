@@ -136,6 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Player
+  damage: 1
 --- !u!82 &5567007516657418167
 AudioSource:
   m_ObjectHideFlags: 0
